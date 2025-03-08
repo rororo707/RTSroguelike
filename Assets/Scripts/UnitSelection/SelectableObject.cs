@@ -7,6 +7,8 @@ public class SelectableObject : MonoBehaviour
     [SerializeField]
     private Material highlightMaterial;
 
+    public bool IsSelected { get; set; } = false;
+
     void Awake()
     {
         renderer = GetComponent<Renderer>();
@@ -16,5 +18,6 @@ public class SelectableObject : MonoBehaviour
     public void SetOutline(bool enabled)
     {
         renderer.material = enabled ? highlightMaterial : baseMaterial;
+        IsSelected = enabled;
     }
 }

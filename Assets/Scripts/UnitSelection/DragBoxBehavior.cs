@@ -66,7 +66,7 @@ public class DragBoxBehavior : MonoBehaviour
                 {
                     selectedUnits.Add(clickedObject);
                     clickedObject.GetComponent<SelectableObject>().SetOutline(true);
-                    Debug.Log("Clicked on unit: " + clickedObject.name);
+                    //Debug.Log("Clicked on unit: " + clickedObject.name);
                 }
             }
             return;
@@ -79,8 +79,8 @@ public class DragBoxBehavior : MonoBehaviour
             {
                 selectedUnits.Add(unit);
                 // You can add logic here to highlight or mark the selected units
-                Debug.Log("Selected unit: " + unit.name);
                 unit.GetComponent<SelectableObject>().SetOutline(true);
+                //Debug.Log("Selected unit: " + unit.name);
             }
         }
 
