@@ -29,7 +29,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputHandler.IsMouseButtonDown(2))
+        if (inputHandler.IsMouseButtonHeldDown(2))
         {
             Cursor.visible = false;
             HandleDragging();

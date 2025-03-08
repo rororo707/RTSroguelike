@@ -9,11 +9,13 @@ public class MovementBehavior : MonoBehaviour
     private SelectableObject selectableObject;
 
     private MovementState movementState;
+    private BannerBehavior bannerBehavior;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         selectableObject = GetComponent<SelectableObject>();
         inputHandler = new InputHandler();
+        bannerBehavior = GetComponent<BannerBehavior>();
     }
 
     void Update()
@@ -26,6 +28,10 @@ public class MovementBehavior : MonoBehaviour
         {
             StopMove();
         }
+        else if (agent.remainingDistance <= bannerBehavior.BannerClearRadius)
+        {
+            OnDestinationReached();
+        }
     }
     public void HandleMove()
     {
@@ -36,11 +42,21 @@ public class MovementBehavior : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(hit.point); // Move to clicked position
+            selectableObject.TargetPosition = hit.point;
+            selectableObject.SetOutline(true); //runs banner logic
         }
     }
     public void StopMove()
     {
         agent.isStopped = true;
+        selectableObject.TargetPosition = null;
+        bannerBehavior.ClearBannerPath();
+    }
+
+    private void OnDestinationReached()
+    {
+        selectableObject.TargetPosition = null;
+        bannerBehavior.ClearBannerPath();
     }
 
 }

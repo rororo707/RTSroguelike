@@ -2,6 +2,7 @@ using UnityEngine;
 
 public interface IInputHandler
 {
+    bool IsMouseButtonHeldDown(int button);
     bool IsMouseButtonDown(int button);
     bool IsMouseButtonUp(int button);
     bool IsKeyboardButtonHeldDown(KeyCode key);
@@ -11,7 +12,8 @@ public interface IInputHandler
 }
 public class InputHandler : IInputHandler
 {
-    public bool IsMouseButtonDown(int button) => Input.GetMouseButton(button);
+    public bool IsMouseButtonHeldDown(int button) => Input.GetMouseButton(button);
+    public bool IsMouseButtonDown(int button) => Input.GetMouseButtonDown(button);
     public bool IsMouseButtonUp(int button) => Input.GetMouseButtonUp(button);
     public bool IsKeyboardButtonHeldDown(KeyCode key) => Input.GetKey(key);
     public bool IsKeyboardButtonDown(KeyCode key) => Input.GetKeyDown(key);
