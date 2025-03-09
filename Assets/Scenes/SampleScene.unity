@@ -269,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
-  m_LocalPosition: {x: 1, y: 19.8, z: -37.1}
+  m_LocalPosition: {x: 1, y: 28.08, z: -38.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -714,6 +714,7 @@ GameObject:
   - component: {fileID: 1576074803}
   - component: {fileID: 1576074802}
   - component: {fileID: 1576074804}
+  - component: {fileID: 1576074805}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -773,7 +774,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3fe781099ee6f0e45baa593b4957d25e, type: 2}
+  - {fileID: 2100000, guid: a5928b2db8a2507408f56991dcbe2136, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -848,7 +849,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 50
     alignment: 0
-    textureMode: 0
+    textureMode: 4
     textureScale: {x: 1, y: 1}
     shadowBias: 0
     generateLightingData: 0
@@ -856,6 +857,19 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1576074805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576074801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14435723bd3bbf341b02ca5c9a6fc338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePrefab: {fileID: 2116501752778017257, guid: ed535a07d7c90e941904923d310da144, type: 3}
 --- !u!1001 &1804281346
 PrefabInstance:
   m_ObjectHideFlags: 0

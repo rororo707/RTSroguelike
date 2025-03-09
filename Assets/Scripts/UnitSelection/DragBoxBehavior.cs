@@ -9,7 +9,7 @@ public class DragBoxBehavior : MonoBehaviour
     private DrawingState drawingState;
     private Plane drawingPlane;
     private List<GameObject> selectedUnits;
-
+    private SelectionPlane selectionPlane;
     [SerializeField]
     private float minimumSelectRadius = 0.5f;
 
@@ -23,6 +23,7 @@ public class DragBoxBehavior : MonoBehaviour
         shapeDrawer = new ShapeDrawer(GetComponent<LineRenderer>());
         drawingState = new DrawingState();
         drawingPlane = new Plane(Vector3.up, Vector3.up * 1); // Plane at y = 1
+        selectionPlane = GetComponent<SelectionPlane>();
 
         selectedUnits = new List<GameObject>();
         // If the LineRenderer is not found, log an error
@@ -43,6 +44,7 @@ public class DragBoxBehavior : MonoBehaviour
             HandleSelectUnits();
             shapeDrawer.ClearLine();
             drawingState.Reset();
+            selectionPlane.DestroyPlane();
         }
     }
     private void HandleSelectUnits()
@@ -115,8 +117,25 @@ public class DragBoxBehavior : MonoBehaviour
             if (drawingState.GetMagnitude() >= minimumSelectRadius)
             {
                 shapeDrawer.DrawLine(positions);
-            }
+                Vector3[] planeVertices = new Vector3[]
+                {
+                    drawingState.InitialPosition,
+                    drawingState.Corner4,
+                    drawingState.Corner2,
+                    drawingState.CurrentPosition
+                };
+                // Update the selection plane
+                if ((drawingState.CurrentPosition.x > drawingState.InitialPosition.x && drawingState.CurrentPosition.z > drawingState.InitialPosition.z) ||
+                    (drawingState.CurrentPosition.x < drawingState.InitialPosition.x && drawingState.CurrentPosition.z < drawingState.InitialPosition.z))
+                {
+                    selectionPlane.ModifyPlaneMesh(planeVertices, false);
+                }
+                else
+                {
+                    selectionPlane.ModifyPlaneMesh(planeVertices, true);
+                }
 
+            }
         }
     }
 }
