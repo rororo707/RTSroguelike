@@ -1,4 +1,3 @@
-using Movement;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +7,6 @@ public class MovementBehavior : MonoBehaviour
     private IInputHandler inputHandler;
     private SelectableUnit selectableUnit;
 
-    private MovementState movementState;
     private BannerBehavior bannerBehavior;
     void Start()
     {
@@ -35,7 +33,7 @@ public class MovementBehavior : MonoBehaviour
     }
     public void HandleMove()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(inputHandler.GetMousePosition());
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
@@ -49,8 +47,7 @@ public class MovementBehavior : MonoBehaviour
     public void StopMove()
     {
         agent.isStopped = true;
-        selectableUnit.TargetPosition = null;
-        bannerBehavior.ClearBannerPath();
+        OnDestinationReached();
     }
 
     private void OnDestinationReached()

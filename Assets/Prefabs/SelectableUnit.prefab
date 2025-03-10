@@ -100,13 +100,12 @@ GameObject:
   - component: {fileID: 1667856091930575184}
   - component: {fileID: 7877544804964687033}
   - component: {fileID: 4367464791734201546}
-  - component: {fileID: -1983590892878961530}
   - component: {fileID: -208152840434520039}
   - component: {fileID: 3749010457243772800}
   - component: {fileID: 4052585044419546399}
   - component: {fileID: 3513726340630053402}
   m_Layer: 8
-  m_Name: Soldier
+  m_Name: SelectableUnit
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 7230799709427838974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.16, y: 1, z: -26.48}
+  m_LocalPosition: {x: 3.27, y: 1, z: -26.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -226,19 +225,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-1983590892878961530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7230799709427838974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c34b5e62b9b5b458f828944ae3504c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 4b553c632fa6bf54885fc7ce6563ba44, type: 2}
 --- !u!114 &-208152840434520039
 MonoBehaviour:
   m_ObjectHideFlags: 0

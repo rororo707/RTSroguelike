@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class BoxPlayerInput : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
@@ -100,8 +100,6 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
-
-
     }
     private bool UnitIsInSelectionBox(Vector2 unitPosition, Bounds bounds)
     {

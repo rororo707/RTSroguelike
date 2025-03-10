@@ -22,6 +22,7 @@ namespace DragBox
             // Calculate the magnitude of the selection box
             return Vector3.Distance(InitialPosition, CurrentPosition);
         }
+        //unused right now
         public bool IsWithinSelectionBounds(Vector3 position)
         {
             // Check if the position is within the rectangle defined by the drawing state
