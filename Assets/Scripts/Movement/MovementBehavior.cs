@@ -6,25 +6,25 @@ public class MovementBehavior : MonoBehaviour
 {
     private NavMeshAgent agent;
     private IInputHandler inputHandler;
-    private SelectableObject selectableObject;
+    private SelectableUnit selectableUnit;
 
     private MovementState movementState;
     private BannerBehavior bannerBehavior;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        selectableObject = GetComponent<SelectableObject>();
+        selectableUnit = GetComponent<SelectableUnit>();
         inputHandler = new InputHandler();
         bannerBehavior = GetComponent<BannerBehavior>();
     }
 
     void Update()
     {
-        if (selectableObject.IsSelected && inputHandler.IsMouseButtonDown(1)) // right click
+        if (selectableUnit.IsSelected && inputHandler.IsMouseButtonDown(1)) // right click
         {
             HandleMove();
         }
-        else if (selectableObject.IsSelected && inputHandler.IsKeyboardButtonDown(KeyCode.S)) // s stop key
+        else if (selectableUnit.IsSelected && inputHandler.IsKeyboardButtonDown(KeyCode.S)) // s stop key
         {
             StopMove();
         }
@@ -42,20 +42,20 @@ public class MovementBehavior : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(hit.point); // Move to clicked position
-            selectableObject.TargetPosition = hit.point;
-            selectableObject.SetOutline(true); //runs banner logic
+            selectableUnit.TargetPosition = hit.point;
+            selectableUnit.DisplayBannerPath();
         }
     }
     public void StopMove()
     {
         agent.isStopped = true;
-        selectableObject.TargetPosition = null;
+        selectableUnit.TargetPosition = null;
         bannerBehavior.ClearBannerPath();
     }
 
     private void OnDestinationReached()
     {
-        selectableObject.TargetPosition = null;
+        selectableUnit.TargetPosition = null;
         bannerBehavior.ClearBannerPath();
     }
 

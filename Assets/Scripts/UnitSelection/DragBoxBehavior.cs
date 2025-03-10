@@ -35,6 +35,7 @@ public class DragBoxBehavior : MonoBehaviour
 
     void Update()
     {
+        return;
         if (inputHandler.IsMouseButtonHeldDown(0))
         {
             HandleDrawing();

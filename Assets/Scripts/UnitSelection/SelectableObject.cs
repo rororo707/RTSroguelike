@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SelectableObject : MonoBehaviour
 {
-    private Renderer renderer;
+    private Renderer materialRenderer;
     private Material baseMaterial;
     private BannerBehavior bannerBehavior;
 
@@ -14,8 +14,8 @@ public class SelectableObject : MonoBehaviour
 
     void Awake()
     {
-        renderer = GetComponent<Renderer>();
-        baseMaterial = renderer.material;
+        materialRenderer = GetComponent<Renderer>();
+        baseMaterial = materialRenderer.material;
         bannerBehavior = GetComponent<BannerBehavior>();
     }
     void Update()
@@ -27,7 +27,7 @@ public class SelectableObject : MonoBehaviour
     }
     public void SetOutline(bool enabled)
     {
-        renderer.material = enabled ? highlightMaterial : baseMaterial;
+        materialRenderer.material = enabled ? highlightMaterial : baseMaterial;
         IsSelected = enabled;
         if (enabled && TargetPosition != null)
         {
